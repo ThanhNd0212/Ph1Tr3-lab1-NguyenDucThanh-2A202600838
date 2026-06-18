@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import time
 from pathlib import Path
 import typer
 from rich import print
@@ -8,13 +9,20 @@ from src.reflexion_lab.reporting import build_report, save_report
 from src.reflexion_lab.utils import load_dataset, save_jsonl
 app = typer.Typer(add_completion=False)
 
+def _run_with_delay(agent, examples, delay: float = 0.5):
+    records = []
+    for ex in examples:
+        records.append(agent.run(ex))
+        time.sleep(delay)
+    return records
+
 @app.command()
 def main(dataset: str = "data/hotpot_mini.json", out_dir: str = "outputs/sample_run", reflexion_attempts: int = 3) -> None:
     examples = load_dataset(dataset)
     react = ReActAgent()
     reflexion = ReflexionAgent(max_attempts=reflexion_attempts)
-    react_records = [react.run(example) for example in examples]
-    reflexion_records = [reflexion.run(example) for example in examples]
+    react_records = _run_with_delay(react, examples)
+    reflexion_records = _run_with_delay(reflexion, examples)
     all_records = react_records + reflexion_records
     out_path = Path(out_dir)
     save_jsonl(out_path / "react_runs.jsonl", react_records)

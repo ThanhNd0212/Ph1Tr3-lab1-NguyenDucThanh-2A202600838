@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import Literal, Optional, TypedDict
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 class ContextChunk(BaseModel):
     title: str
@@ -14,12 +14,18 @@ class QAExample(BaseModel):
     context: list[ContextChunk]
 
 class JudgeResult(BaseModel):
-    # TODO: Học viên định nghĩa các trường cần thiết cho kết quả đánh giá (score, reason, ...)
-    pass
+    model_config = ConfigDict(extra="ignore")
+    score: int = Field(..., description="1 nếu đúng, 0 nếu sai")
+    reason: str = Field(..., description="Lý do đánh giá")
+    missing_evidence: Optional[list[str]] = Field(default=None, description="Bằng chứng còn thiếu")
+    spurious_claims: Optional[list[str]] = Field(default=None, description="Các khẳng định sai")
 
 class ReflectionEntry(BaseModel):
-    # TODO: Học viên định nghĩa các trường cần thiết cho một mục reflection (attempt_id, lesson, strategy, ...)
-    pass
+    model_config = ConfigDict(extra="ignore")
+    attempt_id: int = Field(..., description="ID của lần thử thất bại")
+    failure_reason: str = Field(..., description="Lý do tại sao câu trả lời sai")
+    lesson: str = Field(..., description="Bài học rút ra từ lần thử này")
+    next_strategy: str = Field(..., description="Chiến lược cho lần thử tiếp theo")
 
 class AttemptTrace(BaseModel):
     attempt_id: int
