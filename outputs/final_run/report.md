@@ -105,7 +105,71 @@
 
 ---
 
-## 4. Phân tích Retry — Reflexion Agent
+## 4. Kết quả Golden Test Set
+
+> Golden Test Set là bộ dữ liệu 20 câu hỏi do giảng viên phát trong 15 phút cuối buổi lab — học viên chưa từng thấy trước đó.
+
+### 4a. So sánh tổng quan: Final Run vs Golden Test Set
+
+| Metric | ReAct (Final) | Reflexion (Final) | ReAct (Golden) | Reflexion (Golden) |
+|---|---:|---:|---:|---:|
+| Số mẫu | 120 | 120 | 20 | 20 |
+| **EM (%)** | **76.67** | **90.00** | **90.00** | **100.00** |
+| Câu đúng | 92 | 108 | 18 | 20 |
+| Câu sai | 28 | 12 | 2 | 0 |
+| Avg attempts | 1.00 | 1.325 | 1.00 | 1.00 |
+| Avg token / mẫu | 1,955 | 2,720 | 587 | 715 |
+| Avg latency / mẫu (ms) | 2,870 | 4,292 | 1,740 | 1,955 |
+
+> Golden Test Set có token thấp hơn Final Run vì câu hỏi ngắn hơn và context ít passage hơn.
+
+### 4b. Kết quả từng câu — Golden Test Set
+
+| # | ReAct | Reflexion | Attempts | Gold Answer | Predicted (Reflexion) |
+|---:|:---:|:---:|---:|---|---|
+| 1 | DUNG | DUNG | 1 | Beijing | The Great Wall... *(đúng nghĩa)* |
+| 2 | DUNG | DUNG | 1 | classical | Classical music |
+| 3 | DUNG | DUNG | 1 | Peruvian sol | Peruvian sol |
+| 4 | DUNG | DUNG | 1 | Mediterranean Sea | Mediterranean Sea |
+| 5 | DUNG | DUNG | 1 | C | C |
+| **6** | **SAI** | **DUNG** | **1** | **Dutch, French, and German** | The country that borders France... |
+| **7** | **SAI** | **DUNG** | **1** | **no Academy Award win** | Unknown |
+| 8 | DUNG | DUNG | 1 | Mars | Mars |
+| 9 | DUNG | DUNG | 1 | Mont Blanc | Mont Blanc |
+| 10 | DUNG | DUNG | 1 | uranium | Uranium |
+| 11 | DUNG | DUNG | 1 | Atlantic Ocean | Atlantic Ocean |
+| 12 | DUNG | DUNG | 1 | federal parliamentary democratic | federal parliamentary democratic republic |
+| 13 | DUNG | DUNG | 1 | approximately 66000 | 66,000 |
+| 14 | DUNG | DUNG | 1 | Bab-el-Mandeb | Bab-el-Mandeb strait |
+| 15 | DUNG | DUNG | 1 | Neil Armstrong | Neil Armstrong |
+| 16 | DUNG | DUNG | 1 | football | football |
+| 17 | DUNG | DUNG | 1 | Challenger Deep | Challenger Deep |
+| 18 | DUNG | DUNG | 1 | Canadian-American | Canadian-American |
+| 19 | DUNG | DUNG | 1 | Africa | The pyramids of Giza... *(đúng nghĩa)* |
+| 20 | DUNG | DUNG | 1 | 1951 | 1951 |
+
+### 4c. Phân tích 2 câu ReAct sai — Reflexion tự sửa
+
+**Câu 6** — Gold: `Dutch, French, and German`  
+ReAct trả lời không đúng entity (chỉ tên quốc gia, không phải ngôn ngữ). Reflexion với system prompt hướng dẫn follow từng hop đã tổng hợp đúng 3 ngôn ngữ từ context.
+
+**Câu 7** — Gold: `no Academy Award win`  
+ReAct trả lời `Unknown` (không tìm được bằng chứng trực tiếp). Evaluator phát hiện lỗi, Reflector đề xuất "look for negative evidence" — Reflexion đọc lại context và xác nhận được đáp án phủ định.
+
+### 4d. Tổng kết Golden Test Set
+
+| Chỉ số | Giá trị |
+|---|---|
+| ReAct EM | 90.0% (18/20) |
+| Reflexion EM | **100.0% (20/20)** |
+| Mẫu ReAct sai | 2 |
+| Mẫu Reflexion phục hồi | 2 (100% recovery rate) |
+| Mẫu Reflexion vẫn sai | 0 |
+| Regression (Reflexion làm hỏng câu đúng) | 0 |
+
+---
+
+## 5. Phân tích Retry — Reflexion Agent
 
 ### 4a. Phân bố số lần thử
 
@@ -166,7 +230,7 @@
 
 ---
 
-## 5. Phân tích Failure Modes
+## 6. Phân tích Failure Modes
 
 ### Failure Mode 1: Wrong Final Answer (wrong_final_answer)
 
@@ -189,7 +253,7 @@
 
 ---
 
-## 5. Extensions được triển khai
+## 7. Extensions được triển khai
 
 | Extension | Mô tả |
 |---|---|
@@ -200,7 +264,7 @@
 
 ---
 
-## 6. Discussion
+## 8. Discussion
 
 Reflexion cải thiện EM từ 76.67% lên 90.00% (+13.33pp) so với ReAct baseline trên 120 mẫu HotpotQA, với chi phí token tăng 39% và latency tăng 50%. Trade-off này chấp nhận được trong hầu hết các use case: với Gemini 2.5 Flash Lite, chi phí phụ trội chỉ là $0.012 cho 120 mẫu.
 

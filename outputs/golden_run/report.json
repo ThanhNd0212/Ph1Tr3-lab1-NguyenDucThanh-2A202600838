@@ -1,0 +1,451 @@
+{
+  "meta": {
+    "dataset": "hotpot_golden.json",
+    "mode": "mock",
+    "num_records": 40,
+    "agents": [
+      "react",
+      "reflexion"
+    ]
+  },
+  "summary": {
+    "react": {
+      "count": 20,
+      "em": 0.9,
+      "avg_attempts": 1,
+      "avg_token_estimate": 586.65,
+      "avg_latency_ms": 1740.4
+    },
+    "reflexion": {
+      "count": 20,
+      "em": 1.0,
+      "avg_attempts": 1,
+      "avg_token_estimate": 715.05,
+      "avg_latency_ms": 1954.9
+    },
+    "delta_reflexion_minus_react": {
+      "em_abs": 0.1,
+      "attempts_abs": 0,
+      "tokens_abs": 128.4,
+      "latency_abs": 214.5
+    }
+  },
+  "failure_modes": {
+    "react": {
+      "none": 18,
+      "wrong_final_answer": 2
+    },
+    "reflexion": {
+      "none": 20
+    }
+  },
+  "examples": [
+    {
+      "qid": "gold1",
+      "agent_type": "react",
+      "gold_answer": "Beijing",
+      "predicted_answer": "The Great Wall was built in China. The capital of China is Beijing. Therefore, the capital of the country where the Great Wall was built is Beijing.\n\nBeijing",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold2",
+      "agent_type": "react",
+      "gold_answer": "classical",
+      "predicted_answer": "Classical music",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold3",
+      "agent_type": "react",
+      "gold_answer": "Peruvian sol",
+      "predicted_answer": "Peruvian sol",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold4",
+      "agent_type": "react",
+      "gold_answer": "Mediterranean Sea",
+      "predicted_answer": "Mediterranean Sea",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold5",
+      "agent_type": "react",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold6",
+      "agent_type": "react",
+      "gold_answer": "Dutch, French, and German",
+      "predicted_answer": "French",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold7",
+      "agent_type": "react",
+      "gold_answer": "no Academy Award win",
+      "predicted_answer": "Unknown",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold8",
+      "agent_type": "react",
+      "gold_answer": "Mars",
+      "predicted_answer": "Mars",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold9",
+      "agent_type": "react",
+      "gold_answer": "Mont Blanc",
+      "predicted_answer": "Mont Blanc",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold10",
+      "agent_type": "react",
+      "gold_answer": "uranium",
+      "predicted_answer": "Uranium",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold11",
+      "agent_type": "react",
+      "gold_answer": "Atlantic Ocean",
+      "predicted_answer": "Atlantic Ocean",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold12",
+      "agent_type": "react",
+      "gold_answer": "federal parliamentary democratic republic",
+      "predicted_answer": "federal parliamentary democratic republic",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold13",
+      "agent_type": "react",
+      "gold_answer": "approximately 66000",
+      "predicted_answer": "66,000",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold14",
+      "agent_type": "react",
+      "gold_answer": "Bab-el-Mandeb",
+      "predicted_answer": "Bab-el-Mandeb strait",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold15",
+      "agent_type": "react",
+      "gold_answer": "Neil Armstrong",
+      "predicted_answer": "Neil Armstrong",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold16",
+      "agent_type": "react",
+      "gold_answer": "football",
+      "predicted_answer": "football",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold17",
+      "agent_type": "react",
+      "gold_answer": "Challenger Deep",
+      "predicted_answer": "The Challenger Deep in the Mariana Trench",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold18",
+      "agent_type": "react",
+      "gold_answer": "Canadian-American",
+      "predicted_answer": "Canadian-American",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold19",
+      "agent_type": "react",
+      "gold_answer": "Africa",
+      "predicted_answer": "Africa",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold20",
+      "agent_type": "react",
+      "gold_answer": "1951",
+      "predicted_answer": "1951",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold1",
+      "agent_type": "reflexion",
+      "gold_answer": "Beijing",
+      "predicted_answer": "The Great Wall of China was built across the historical northern borders of China. China's capital is Beijing. Therefore, the capital of the country where the Great Wall was built is Beijing.\n\nBeijing",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold2",
+      "agent_type": "reflexion",
+      "gold_answer": "classical",
+      "predicted_answer": "Classical music",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold3",
+      "agent_type": "reflexion",
+      "gold_answer": "Peruvian sol",
+      "predicted_answer": "Peruvian sol",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold4",
+      "agent_type": "reflexion",
+      "gold_answer": "Mediterranean Sea",
+      "predicted_answer": "Mediterranean Sea",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold5",
+      "agent_type": "reflexion",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold6",
+      "agent_type": "reflexion",
+      "gold_answer": "Dutch, French, and German",
+      "predicted_answer": "The country that borders France to the northeast and has Brussels as its capital is Belgium. Belgium has three official languages: Dutch, French, and German. The question asks for \"the official language,\" implying a single language. Since there are three, and the question doesn't specify which one, I need to determine if there's a unique identifier or if any of the three would suffice. However, given the structure of the question, it's likely looking for *an* official language of that country. The context states \"three official languages: Dutch, French, and German.\"\n\nThe first hop is to identify the country that borders France to the northeast and has Brussels as its capital.\nFrom the [France] passage, France is bordered to the northeast by Belgium, Luxembourg, and Germany.\nFrom the [Belgium] passage, Belgium has Brussels as its capital.\nTherefore, Belgium is the country that borders France to the northeast and has Brussels as its capital.\n\nThe second hop is to identify the official language of Belgium.\nFrom the [Belgium] passage, Belgium has three official languages: Dutch, French, and German.\n\nThe question asks for \"the official language\" which implies one. Since there are three, and no further disambiguation is provided, I will list all three. However, the instructions say to reply with *only* the final answer, a name, date, number, or short phrase. Listing all three might be too long or not the intended format if a single answer is expected.\n\nLet's re-evaluate the question: \"What is *the* official language...\" The use of \"the\" suggests a singular answer. If a country has multiple official languages, and the question asks for \"the\" official language without further qualification, it's ambiguous. However, if I have to pick one, is there any implicit priority? No.\n\nLet me consider if any of the official languages are also mentioned in relation to France. The [France] passage mentions France is bordered by Germany and Luxembourg. The [Belgium] passage mentions Belgium's official languages are Dutch, French, and German. French is also one of France's neighbors. However, the question is not about the language of the border itself, but the official language of the country *that* borders France and has Brussels as its capital.\n\nGiven the constraint to provide \"a name, date, number, or short phrase,\" and that there are three official languages, I should probably list all three as a collective answer. But if a single answer is strictly enforced, this question might be unanswerable with a single definitive word.\n\nLet's assume the question implies any of the official languages would be a correct answer. In that case, any of Dutch, French, or German would technically be correct. However, to be most accurate to the text, I should acknowledge all of them.\n\nLet's consider the possibility that the question intends to trick or test how I handle ambiguity. If the question asked for \"an\" official language, any would do. \"The\" implies uniqueness.\n\nIf I were forced to give one word, and French is also mentioned in relation to France, could that be a clue? No, the question is about Belgium's official languages.\n\nLet's re-read the instructions carefully: \"Reply with ONLY the final answer \u2014 a name, date, number, or short phrase.\" If there are multiple answers, and they are all correct, how to represent that as a \"short phrase\"? \"Dutch, French, and German\" is a short phrase.\n\nLet me try to be more concise.\nHop 1: Identify country bordering France to the NE with Brussels as capital -> Belgium.\nHop 2: Identify official languages of Belgium -> Dutch, French, German.\n\nThe question asks for \"the official language\". This is problematic.\nIf the question were \"What are the official languages...\", then Dutch, French, and German would be the answer.\nSince it asks for \"the official language\", and there are three, perhaps I should list them all, separated by commas or 'and'.\n\nLet's assume that listing all the official languages is the intended answer for this scenario.\nThe final answer is derived from the official languages of Belgium.\n\nDutch, French, and German.\n\nThe final answer is Dutch, French, and German. This is a short phrase.\n\nThe country that borders France to the northeast and has Brussels as its capital is Belgium. Belgium has three official languages: Dutch, French, and German. The question asks for \"the official language,\" which is ambiguous as there are three. However, adhering to the format of providing a short phrase, and recognizing all are official languages, the most comprehensive answer reflecting the provided text is to list them all.\n\nDutch, French, and German.\n\nFinal check:\n- Question: \"What is the official language of the country that borders France to the northeast and has Brussels as its capital?\"\n- Country bordering France to NE: Belgium, Luxembourg, Germany (from France passage).\n- Country with Brussels as capital: Belgium (from Belgium passage).\n- Therefore, the country is Belgium.\n- Official languages of Belgium: Dutch, French, and German (from Belgium passage).\n- The question asks for \"the official language\", singular. This is an ambiguity.\n\nIf the question implicitly assumes a default or primary language, the text doesn't provide it.\nIf the question expects *any* of the official languages, I could pick one, but that would be arbitrary and not fully representative of the facts.\nThe best approach to represent the facts accurately within the \"short phrase\" constraint is to list all of them.\n\nDutch, French, and German.\n\nThe final answer should be a short phrase representing the official languages of Belgium.\n\nDutch, French, and German.Dutch, French, and German",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold7",
+      "agent_type": "reflexion",
+      "gold_answer": "no Academy Award win",
+      "predicted_answer": "Unknown",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold8",
+      "agent_type": "reflexion",
+      "gold_answer": "Mars",
+      "predicted_answer": "Mars",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold9",
+      "agent_type": "reflexion",
+      "gold_answer": "Mont Blanc",
+      "predicted_answer": "Mont Blanc",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold10",
+      "agent_type": "reflexion",
+      "gold_answer": "uranium",
+      "predicted_answer": "Uranium",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold11",
+      "agent_type": "reflexion",
+      "gold_answer": "Atlantic Ocean",
+      "predicted_answer": "Atlantic Ocean",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold12",
+      "agent_type": "reflexion",
+      "gold_answer": "federal parliamentary democratic republic",
+      "predicted_answer": "federal parliamentary democratic republic",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold13",
+      "agent_type": "reflexion",
+      "gold_answer": "approximately 66000",
+      "predicted_answer": "66,000",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold14",
+      "agent_type": "reflexion",
+      "gold_answer": "Bab-el-Mandeb",
+      "predicted_answer": "Bab-el-Mandeb strait",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold15",
+      "agent_type": "reflexion",
+      "gold_answer": "Neil Armstrong",
+      "predicted_answer": "Neil Armstrong",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold16",
+      "agent_type": "reflexion",
+      "gold_answer": "football",
+      "predicted_answer": "football",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold17",
+      "agent_type": "reflexion",
+      "gold_answer": "Challenger Deep",
+      "predicted_answer": "Challenger Deep",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold18",
+      "agent_type": "reflexion",
+      "gold_answer": "Canadian-American",
+      "predicted_answer": "Canadian-American",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold19",
+      "agent_type": "reflexion",
+      "gold_answer": "Africa",
+      "predicted_answer": "The pyramids of Giza are located in Egypt. Egypt is a transcontinental country, but the majority of its territory, including Cairo, is located in northeastern Africa. Therefore, the country where the pyramids of Giza are located is on the continent of Africa.\n\nAfrica",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "gold20",
+      "agent_type": "reflexion",
+      "gold_answer": "1951",
+      "predicted_answer": "1951",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    }
+  ],
+  "extensions": [
+    "structured_evaluator",
+    "reflection_memory",
+    "benchmark_report_json",
+    "mock_mode_for_autograding"
+  ],
+  "discussion": "Reflexion helps when the first attempt stops after the first hop or drifts to a wrong second-hop entity. The tradeoff is higher attempts, token cost, and latency. In a real report, students should explain when the reflection memory was useful, which failure modes remained, and whether evaluator quality limited gains."
+}
